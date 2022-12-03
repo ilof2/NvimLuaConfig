@@ -110,6 +110,7 @@ keymap('n', '<A-0>', '<Cmd>BufferLast<CR>', opts)
 keymap('n', '<A-p>', '<Cmd>BufferPin<CR>', opts)
 -- Close buffer
 keymap('n', '<leader>c', '<Cmd>BufferClose<CR>', opts)
+vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
 -- Wipeout buffer
 --                 :BufferWipeout
 -- Close commands
