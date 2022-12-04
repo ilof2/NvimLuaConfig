@@ -24,6 +24,7 @@ keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
+keymap("n", "qqq", ":qall<CR>", opts)
 
 -- Resize with arrows
 keymap("n", "<S-Up>", ":resize -2<CR>", opts)
@@ -66,6 +67,7 @@ keymap('n', '<leader>tb', '<cmd>Gitsigns toggle_current_line_blame<CR>', opts)
 keymap('n', '<leader>hd', '<cmd>Gitsigns diffthis<CR>', opts)
 --[[ keymap('n', '<leader>hD', '<cmd>lua require"gitsigns".diffthis("~")<CR>') ]]
 --[[ keymap('n', '<leader>td', '<cmd>Gitsigns toggle_deleted<CR>') ]]
+keymap("n", "<leader>,", ":nohlsearch<CR>", opts)
 
 -- Visual Block --
 -- Move text up and down
@@ -76,7 +78,7 @@ keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 keymap("n", "<leader>f", "<cmd>Telescope find_files<cr>", opts)
 -- keymap("n", "<leader>f", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", opts)
 --[[ keymap("n", "<leader>f", "<cmd>lua require('telescope.builtin').find_files({search_dirs = {'%:p'}})<cr>", opts) ]]
-keymap("n", "<c-t>", "<cmd>Telescope live_grep<cr>", opts)
+keymap("n", "<leader>fl", "<cmd>Telescope live_grep<cr>", opts)
 
 keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
 -- Terminal --
@@ -96,20 +98,20 @@ keymap('n', '<A-.>', '<Cmd>BufferNext<CR>', opts)
 keymap('n', '<A-<>', '<Cmd>BufferMovePrevious<CR>', opts)
 keymap('n', '<A->>', '<Cmd>BufferMoveNext<CR>', opts)
 -- Goto buffer in position...
-keymap('n', '<A-1>', '<Cmd>BufferGoto 1<CR>', opts)
-keymap('n', '<A-2>', '<Cmd>BufferGoto 2<CR>', opts)
-keymap('n', '<A-3>', '<Cmd>BufferGoto 3<CR>', opts)
-keymap('n', '<A-4>', '<Cmd>BufferGoto 4<CR>', opts)
-keymap('n', '<A-5>', '<Cmd>BufferGoto 5<CR>', opts)
-keymap('n', '<A-6>', '<Cmd>BufferGoto 6<CR>', opts)
-keymap('n', '<A-7>', '<Cmd>BufferGoto 7<CR>', opts)
-keymap('n', '<A-8>', '<Cmd>BufferGoto 8<CR>', opts)
-keymap('n', '<A-9>', '<Cmd>BufferGoto 9<CR>', opts)
-keymap('n', '<A-0>', '<Cmd>BufferLast<CR>', opts)
+keymap('n', '<leader>1', '<Cmd>BufferGoto 1<CR>', opts)
+keymap('n', '<leader>2', '<Cmd>BufferGoto 2<CR>', opts)
+keymap('n', '<leader>3', '<Cmd>BufferGoto 3<CR>', opts)
+keymap('n', '<leader>4', '<Cmd>BufferGoto 4<CR>', opts)
+keymap('n', '<leader>5', '<Cmd>BufferGoto 5<CR>', opts)
+keymap('n', '<leader>6', '<Cmd>BufferGoto 6<CR>', opts)
+keymap('n', '<leader>7', '<Cmd>BufferGoto 7<CR>', opts)
+keymap('n', '<leader>8', '<Cmd>BufferGoto 8<CR>', opts)
+keymap('n', '<leader>9', '<Cmd>BufferGoto 9<CR>', opts)
+keymap('n', '<leader>0', '<Cmd>BufferLast<CR>', opts)
 -- Pin/unpin buffer
-keymap('n', '<A-p>', '<Cmd>BufferPin<CR>', opts)
+keymap('n', '<leader>bp', '<Cmd>BufferPin<CR>', opts)
 -- Close buffer
-keymap('n', '<leader>c', '<Cmd>BufferClose<CR>', opts)
+keymap('n', '<leader>bc', '<Cmd>BufferClose<CR>', opts)
 vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
 -- Wipeout buffer
 --                 :BufferWipeout
@@ -127,4 +129,8 @@ keymap('n', '<Space>bd', '<Cmd>BufferOrderByDirectory<CR>', opts)
 keymap('n', '<Space>bl', '<Cmd>BufferOrderByLanguage<CR>', opts)
 keymap('n', '<Space>bw', '<Cmd>BufferOrderByWindowNumber<CR>', opts)
 keymap("n", "<leader>ff", ":Format<cr>", opts)
+
+-- Run in Terminal shortcuts --
+keymap("n", "<leader>tp", ":Term cmd=python<cr>", opts)
+keymap("n", "<leader>tg", ":Term cmd=lazygit<cr>", opts)
 

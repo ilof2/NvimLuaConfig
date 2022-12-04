@@ -46,7 +46,8 @@ return packer.startup(function(use)
   use { "nvim-lua/plenary.nvim", commit = "4b7e52044bbb84242158d977a50c4cbcd85070c7" } -- Useful lua functions used by lots of plugins
   use "windwp/nvim-autopairs"
   use "Pocco81/AutoSave.nvim"
-
+  use "akinsho/toggleterm.nvim"
+  use { "gelguy/wilder.nvim", opt = true, setup = [[vim.cmd('packadd wilder.nvim')]] }
   -- cmp plugins
   use "hrsh7th/nvim-cmp"  -- The completion pluggin
   use "hrsh7th/cmp-path"  -- path completions

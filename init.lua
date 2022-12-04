@@ -13,6 +13,7 @@ require "user.nvim-tree"
 require "user.lualine"
 require "user.barbar"
 require "user.toggleterm"
+require "user.autosave"
 
 vim.cmd "colorscheme gruvbox"
 
