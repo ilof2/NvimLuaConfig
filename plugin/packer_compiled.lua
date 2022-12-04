@@ -219,6 +219,11 @@ _G.packer_plugins = {
     path = "/Users/ilof/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
+  ["toggleterm.nvim"] = {
+    loaded = true,
+    path = "/Users/ilof/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
+    url = "https://github.com/akinsho/toggleterm.nvim"
+  },
   ["vim-bbye"] = {
     loaded = true,
     path = "/Users/ilof/.local/share/nvim/site/pack/packer/start/vim-bbye",
@@ -228,10 +233,20 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/ilof/.local/share/nvim/site/pack/packer/start/vim-illuminate",
     url = "https://github.com/RRethy/vim-illuminate"
+  },
+  ["wilder.nvim"] = {
+    loaded = false,
+    needs_bufread = false,
+    path = "/Users/ilof/.local/share/nvim/site/pack/packer/opt/wilder.nvim",
+    url = "https://github.com/gelguy/wilder.nvim"
   }
 }
 
 time([[Defining packer_plugins]], false)
+-- Setup for: wilder.nvim
+time([[Setup for wilder.nvim]], true)
+vim.cmd('packadd wilder.nvim')
+time([[Setup for wilder.nvim]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then
