@@ -90,6 +90,13 @@ return packer.startup(function(use)
   use "lunarvim/colorschemes"
   use "ellisonleao/gruvbox.nvim"
 
+  -- Python
+  use "jmcantrell/vim-virtualenv"
+  use 'integralist/vim-mypy'
+  use 'mfussenegger/nvim-dap'
+  use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
+  use "ravenxrz/DAPInstall.nvim"
+
   if PACKER_BOOTSTRAP then
       require("packer").sync()
   end

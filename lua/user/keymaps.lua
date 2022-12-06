@@ -130,6 +130,11 @@ keymap('n', '<Space>bl', '<Cmd>BufferOrderByLanguage<CR>', opts)
 keymap('n', '<Space>bw', '<Cmd>BufferOrderByWindowNumber<CR>', opts)
 keymap("n", "<leader>ff", ":Format<cr>", opts)
 
+-- Debug --
+keymap("n", "<leader>dd", "<Cmd>DapToggleBreakpoint<CR>", opts)
+keymap("n", "<leader>de", "<Cmd>DapStepOver<CR>", opts)
+keymap("n", "<leader>D", "<Cmd>DapContinue<CR>", opts)
+
 -- Run in Terminal shortcuts --
 keymap("n", "<leader>tp", ":Term cmd=python<cr>", opts)
 keymap("n", "<leader>tg", ":Term cmd=lazygit<cr>", opts)
