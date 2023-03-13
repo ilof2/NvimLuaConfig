@@ -74,11 +74,6 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
-  ["AutoSave.nvim"] = {
-    loaded = true,
-    path = "/Users/ilof/.local/share/nvim/site/pack/packer/start/AutoSave.nvim",
-    url = "https://github.com/Pocco81/AutoSave.nvim"
-  },
   ["Comment.nvim"] = {
     loaded = true,
     path = "/Users/ilof/.local/share/nvim/site/pack/packer/start/Comment.nvim",
@@ -129,6 +124,11 @@ _G.packer_plugins = {
     path = "/Users/ilof/.local/share/nvim/site/pack/packer/start/colorschemes",
     url = "https://github.com/lunarvim/colorschemes"
   },
+  everforest = {
+    loaded = true,
+    path = "/Users/ilof/.local/share/nvim/site/pack/packer/start/everforest",
+    url = "https://github.com/sainnhe/everforest"
+  },
   ["friendly-snippets"] = {
     loaded = true,
     path = "/Users/ilof/.local/share/nvim/site/pack/packer/start/friendly-snippets",
@@ -138,11 +138,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/ilof/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
-  },
-  ["gruvbox.nvim"] = {
-    loaded = true,
-    path = "/Users/ilof/.local/share/nvim/site/pack/packer/start/gruvbox.nvim",
-    url = "https://github.com/ellisonleao/gruvbox.nvim"
   },
   ["lualine.nvim"] = {
     loaded = true,
@@ -258,20 +253,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/ilof/.local/share/nvim/site/pack/packer/start/vim-virtualenv",
     url = "https://github.com/jmcantrell/vim-virtualenv"
-  },
-  ["wilder.nvim"] = {
-    loaded = false,
-    needs_bufread = false,
-    path = "/Users/ilof/.local/share/nvim/site/pack/packer/opt/wilder.nvim",
-    url = "https://github.com/gelguy/wilder.nvim"
   }
 }
 
 time([[Defining packer_plugins]], false)
--- Setup for: wilder.nvim
-time([[Setup for wilder.nvim]], true)
-vim.cmd('packadd wilder.nvim')
-time([[Setup for wilder.nvim]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

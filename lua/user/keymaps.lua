@@ -4,6 +4,10 @@ local term_opts = { silent = true }
 
 -- Shorten function name
 local keymap = vim.api.nvim_set_keymap
+function SAVE_AND_CLOSE_BUFFER()
+    vim.cmd(":w!")
+    vim.cmd(":BufferClose")
+end
 
 --Remap space as leader key
 keymap("", "<Space>", "<Nop>", opts)
@@ -20,35 +24,48 @@ vim.g.maplocalleader = " "
 
 -- Normal --
 -- Better window navigation
+keymap("n", ";", ":", opts)
+keymap("v", ";", ":", opts)
 keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
-keymap("n", "qqq", ":qall<CR>", opts)
+
+keymap("n", "<leader>qq", ":qall!<CR>", opts)
 
 -- Resize with arrows
-keymap("n", "<S-Up>", ":resize -2<CR>", opts)
-keymap("n", "<S-Down>", ":resize +2<CR>", opts)
-keymap("n", "<S-Left>", ":vertical resize -2<CR>", opts)
-keymap("n", "<S-Right>", ":vertical resize +2<CR>", opts)
+keymap("n", "<S-Up>", ":resize -4<CR>", opts)
+keymap("n", "<S-Down>", ":resize +4<CR>", opts)
+keymap("n", "<S-Left>", ":vertical resize -4<CR>", opts)
+keymap("n", "<S-Right>", ":vertical resize +4<CR>", opts)
 
 -- Navigate buffers
 keymap("n", "<S-h>", ":bnext<CR>", opts)
 keymap("n", "<S-l>", ":bprevious<CR>", opts)
+
+-- Save shorcuts
+keymap("n", "<leader>w", ":w!<CR>", opts)
+keymap("n", "<leader>wq", ":lua SAVE_AND_CLOSE_BUFFER()<CR>", opts)
+keymap("n", "<leader>Q", ":BufferClose!<CR>", opts)
+
 
 -- Move text up and down
 keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
 keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
 
 -- Insert --
--- Press jk fast to exit insert mode 
-keymap("i", "jk", "<ESC>", opts)
-keymap("i", "kj", "<ESC>", opts)
+keymap("i", "<C-h>", "<Left>", opts)
+keymap("i", "<C-j>", "<Down>", opts)
+keymap("i", "<C-k>", "<Up>", opts)
+keymap("i", "<C-l>", "<Right>", opts)
+
 
 -- Visual --
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
+keymap("n", '<', '<<', opts)
+keymap("n", '>', '>>', opts)
 
 -- Move text up and down
 keymap("v", "p", '"_dP', opts)
@@ -75,12 +92,12 @@ keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 
 -- Telescope --
-keymap("n", "<leader>f", "<cmd>Telescope find_files<cr>", opts)
--- keymap("n", "<leader>f", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", opts)
+--[[ keymap("n", "<leader>f", "<cmd>Telescope find_files<cr>", opts) ]]
+keymap("n", "<leader>f", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", opts)
 --[[ keymap("n", "<leader>f", "<cmd>lua require('telescope.builtin').find_files({search_dirs = {'%:p'}})<cr>", opts) ]]
 keymap("n", "<leader>fl", "<cmd>Telescope live_grep<cr>", opts)
 
-keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
+keymap("n", "<leader><tab>", ":NvimTreeToggle<cr>", opts)
 -- Terminal --
 -- Better terminal navigation
 -- keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
@@ -112,7 +129,7 @@ keymap('n', '<leader>0', '<Cmd>BufferLast<CR>', opts)
 keymap('n', '<leader>bp', '<Cmd>BufferPin<CR>', opts)
 -- Close buffer
 keymap('n', '<leader>bc', '<Cmd>BufferClose<CR>', opts)
-vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
+vim.cmd [[ command! Format execute 'lua vim.lsp.buf.format({async = true})' ]]
 -- Wipeout buffer
 --                 :BufferWipeout
 -- Close commands
@@ -131,9 +148,11 @@ keymap('n', '<Space>bw', '<Cmd>BufferOrderByWindowNumber<CR>', opts)
 keymap("n", "<leader>ff", ":Format<cr>", opts)
 
 -- Debug --
-keymap("n", "<leader>dd", "<Cmd>DapToggleBreakpoint<CR>", opts)
-keymap("n", "<leader>de", "<Cmd>DapStepOver<CR>", opts)
-keymap("n", "<leader>D", "<Cmd>DapContinue<CR>", opts)
+keymap("n", "<leader>d", "<Cmd>DapToggleBreakpoint<CR>", opts)
+keymap("n", "<leader>e", "<Cmd>DapStepOver<CR>", opts)
+keymap("n", "<leader>ds", "<Cmd>DapLoadLaunchJSON<CR>", opts)
+keymap("n", "<leader>s", "<Cmd>DapContinue<CR>", opts)
+keymap("n", "<leader>ie", "<Cmd>DapStepInto<CR>", opts)
 
 -- Run in Terminal shortcuts --
 keymap("n", "<leader>tp", ":Term cmd=python<cr>", opts)
