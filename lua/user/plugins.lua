@@ -76,11 +76,10 @@ return packer.startup(function(use)
   use { "nvim-telescope/telescope.nvim", commit = "76ea9a898d3307244dce3573392dcf2cc38f340f" }
 
   -- TreeSitter
-  use {
-    "nvim-treesitter/nvim-treesitter",
-    run = ":TSUpdate",
-  }
-  use "JoosepAlviste/nvim-ts-context-commentstring"
+  --[[ use { ]]
+  --[[   "nvim-treesitter/nvim-treesitter", ]]
+  --[[   run = ":TSUpdate", ]]
+  --[[ } ]]
   -- Git
   use "lewis6991/gitsigns.nvim"
 
@@ -94,6 +93,7 @@ return packer.startup(function(use)
   use 'mfussenegger/nvim-dap'
   use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
   use "ravenxrz/DAPInstall.nvim"
+
 
   if PACKER_BOOTSTRAP then
       require("packer").sync()
