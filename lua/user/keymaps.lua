@@ -46,7 +46,6 @@ keymap("n", "<S-l>", ":bprevious<CR>", opts)
 -- Save shorcuts
 keymap("n", "<leader>w", ":w!<CR>", opts)
 keymap("n", "<leader>wq", ":lua SAVE_AND_CLOSE_BUFFER()<CR>", opts)
-keymap("n", "<leader>Q", ":BufferClose!<CR>", opts)
 
 
 -- Move text up and down
@@ -93,59 +92,21 @@ keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 
 -- Telescope --
 --[[ keymap("n", "<leader>f", "<cmd>Telescope find_files<cr>", opts) ]]
-keymap("n", "<leader>f", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", opts)
+keymap("n", "<leader>ff", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", opts)
 --[[ keymap("n", "<leader>f", "<cmd>lua require('telescope.builtin').find_files({search_dirs = {'%:p'}})<cr>", opts) ]]
 keymap("n", "<leader>fl", "<cmd>Telescope live_grep<cr>", opts)
 
 keymap("n", "<leader><tab>", ":NvimTreeToggle<cr>", opts)
 -- Terminal --
 -- Better terminal navigation
--- keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
--- keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
--- keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
--- keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
+keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
+keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
+keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
+keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
-
-
-
--- Move to previous/next
-keymap('n', '<A-,>', '<Cmd>BufferPrevious<CR>', opts)
-keymap('n', '<A-.>', '<Cmd>BufferNext<CR>', opts)
--- Re-order to previous/next
-keymap('n', '<A-<>', '<Cmd>BufferMovePrevious<CR>', opts)
-keymap('n', '<A->>', '<Cmd>BufferMoveNext<CR>', opts)
--- Goto buffer in position...
-keymap('n', '<leader>1', '<Cmd>BufferGoto 1<CR>', opts)
-keymap('n', '<leader>2', '<Cmd>BufferGoto 2<CR>', opts)
-keymap('n', '<leader>3', '<Cmd>BufferGoto 3<CR>', opts)
-keymap('n', '<leader>4', '<Cmd>BufferGoto 4<CR>', opts)
-keymap('n', '<leader>5', '<Cmd>BufferGoto 5<CR>', opts)
-keymap('n', '<leader>6', '<Cmd>BufferGoto 6<CR>', opts)
-keymap('n', '<leader>7', '<Cmd>BufferGoto 7<CR>', opts)
-keymap('n', '<leader>8', '<Cmd>BufferGoto 8<CR>', opts)
-keymap('n', '<leader>9', '<Cmd>BufferGoto 9<CR>', opts)
-keymap('n', '<leader>0', '<Cmd>BufferLast<CR>', opts)
--- Pin/unpin buffer
-keymap('n', '<leader>bp', '<Cmd>BufferPin<CR>', opts)
--- Close buffer
-keymap('n', '<leader>bc', '<Cmd>BufferClose<CR>', opts)
 vim.cmd [[ command! Format execute 'lua vim.lsp.buf.format({async = true})' ]]
--- Wipeout buffer
---                 :BufferWipeout
--- Close commands
---                 :BufferCloseAllButCurrent
---                 :BufferCloseAllButPinned
---                 :BufferCloseAllButCurrentOrPinned
---                 :BufferCloseBuffersLeft
---                 :BufferCloseBuffersRight
--- Magic buffer-picking mode
-keymap('n', '<C-p>', '<Cmd>BufferPick<CR>', opts)
 -- Sort automatically by...
-keymap('n', '<Space>bb', '<Cmd>BufferOrderByBufferNumber<CR>', opts)
-keymap('n', '<Space>bd', '<Cmd>BufferOrderByDirectory<CR>', opts)
-keymap('n', '<Space>bl', '<Cmd>BufferOrderByLanguage<CR>', opts)
-keymap('n', '<Space>bw', '<Cmd>BufferOrderByWindowNumber<CR>', opts)
-keymap("n", "<leader>ff", ":Format<cr>", opts)
+keymap("n", "<leader>fd", ":Format<cr>", opts)
 
 -- Debug --
 keymap("n", "<leader>d", "<Cmd>DapToggleBreakpoint<CR>", opts)

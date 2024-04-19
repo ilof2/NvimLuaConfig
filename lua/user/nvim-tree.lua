@@ -58,7 +58,7 @@ local function on_attach(bufnr)
   vim.keymap.set('n', '[c',    api.node.navigate.git.prev,            opts('Prev Git'))
   vim.keymap.set('n', ']c',    api.node.navigate.git.next,            opts('Next Git'))
   vim.keymap.set('n', 'd',     api.fs.remove,                         opts('Delete'))
-  vim.keymap.set('n', 'D',     api.fs.trash,                          opts('Trash'))
+  --vim.keymap.set('n', 'D',     api.fs.trash,                          opts('Trash'))
   vim.keymap.set('n', 'E',     api.tree.expand_all,                   opts('Expand All'))
   vim.keymap.set('n', 'e',     api.fs.rename_basename,                opts('Rename: Basename'))
   vim.keymap.set('n', ']e',    api.node.navigate.diagnostics.next,    opts('Next Diagnostic'))
@@ -106,6 +106,7 @@ local tree_cb = nvim_tree_config.nvim_tree_callback
 
 nvim_tree.setup {
   on_attach = on_attach,
+  git=false,
   update_focused_file = {
     enable = true,
     update_cwd = true,
@@ -153,3 +154,11 @@ nvim_tree.setup {
     side = "left",
   },
 }
+
+vim.g.nvim_tree_show_icons = {
+  folders = 0,
+  files = 0,
+  git = 0,
+  folder_arrows = 0,
+}
+nvim_tree.show_icons = false
